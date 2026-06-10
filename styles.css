@@ -231,25 +231,51 @@ a {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 18px 22px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
-  color: #fff;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffb800 0%, #ff7a00 100%);
+  color: #1a1a1a;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.35), 0 16px 36px rgba(255, 122, 0, 0.45);
+  animation: thankPulse 1.8s ease-in-out infinite;
 }
 
 .thank-you-banner p {
   margin: 0;
-  font-size: clamp(17px, 2.4vw, 22px);
-  font-weight: 700;
-  line-height: 1.4;
+  font-size: clamp(19px, 2.7vw, 26px);
+  font-weight: 800;
+  line-height: 1.35;
   letter-spacing: 0.01em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .thank-you-icon {
-  font-size: 26px;
-  color: #ffc83d;
+  font-size: 34px;
+  color: #fff;
   flex-shrink: 0;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25));
+  animation: thankSpin 3s linear infinite;
+}
+
+@keyframes thankPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.35), 0 16px 36px rgba(255, 122, 0, 0.45);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 6px rgba(255, 138, 0, 0.28), 0 20px 44px rgba(255, 122, 0, 0.55);
+  }
+}
+
+@keyframes thankSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .site-footer {
