@@ -12,6 +12,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   margin: 0;
@@ -79,6 +83,100 @@ a {
   width: min(1240px, 94vw);
   margin: 0 auto;
   padding: 34px 0 90px;
+}
+
+/* ===== Hero (phong cách premium tối màu) ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: #f3effc;
+  padding: 66px 24px 74px;
+  background:
+    radial-gradient(circle at 50% 36%, rgba(150, 102, 204, 0.55) 0%, rgba(150, 102, 204, 0) 56%),
+    linear-gradient(160deg, #1c1147 0%, #2f1c72 46%, #130a2e 100%);
+}
+
+.hero-inner {
+  width: min(900px, 92vw);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-brand {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: clamp(42px, 8vw, 78px);
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.hero-brand span {
+  font-size: 0.34em;
+  letter-spacing: 0.16em;
+  vertical-align: middle;
+  opacity: 0.82;
+}
+
+.hero-headline {
+  margin: 26px 0 6px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: clamp(21px, 3.6vw, 33px);
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  color: #efe9ff;
+}
+
+.hero-product {
+  margin: 16px 0 4px;
+}
+
+.hero-product img {
+  width: min(420px, 78vw);
+  height: auto;
+  -webkit-box-reflect: below 4px linear-gradient(transparent 56%, rgba(255, 255, 255, 0.16));
+  filter: drop-shadow(0 24px 52px rgba(0, 0, 0, 0.5));
+}
+
+.hero-divider {
+  width: 54px;
+  height: 1px;
+  margin: 26px 0 20px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.hero-tagline {
+  margin: 0 0 26px;
+  max-width: 560px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  line-height: 1.7;
+  color: #cfc6ea;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.hero-cta:hover {
+  background: #fff;
+  color: #1c1147;
 }
 
 .product-section {
@@ -227,25 +325,27 @@ a {
 }
 
 .thank-you-banner {
-  background: #1a2744;
-  color: #e8edf8;
+  background: #ede8ff;
+  color: #3d1a8f;
+  border-top: 4px solid #7c5cbf;
+  border-bottom: 4px solid #7c5cbf;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 18px 24px;
+  gap: 16px;
+  padding: 36px 24px;
 }
 
 .thank-you-banner p {
   margin: 0;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 .thank-you-icon {
-  font-size: 16px;
-  color: #7fa8e8;
+  font-size: 28px;
+  color: #7c5cbf;
   flex-shrink: 0;
 }
 
@@ -328,11 +428,99 @@ a {
 }
 
 @media (max-width: 640px) {
-  .thumb-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Header: nav-left + nav-right cùng 1 hàng dưới brand */
+  .site-header {
+    grid-template-columns: 1fr 1fr;
+    min-height: auto;
+    padding: 14px 0;
+    gap: 8px 0;
   }
 
+  .brand {
+    grid-column: 1 / 3;
+    font-size: 18px;
+  }
+
+  .nav-left {
+    justify-content: center;
+  }
+
+  .nav-right {
+    justify-content: center;
+  }
+
+  /* Gallery */
+  .main-frame img {
+    max-height: 260px;
+    object-fit: contain;
+  }
+
+  .thumb-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    grid-template-columns: unset;
+  }
+
+  .thumb {
+    flex: 0 0 72px;
+    height: 72px;
+  }
+
+  .thumb img {
+    height: 72px;
+  }
+
+  /* Product info */
+  .product-name {
+    font-size: 26px;
+  }
+
+  .product-sub {
+    font-size: 15px;
+  }
+
+  /* Action row */
+  .action-row {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .btn-contact {
+    width: 100%;
+    height: 48px;
+  }
+
+  .link-muted {
+    text-align: center;
+    padding: 4px 0;
+  }
+
+  /* Banner */
+  .thank-you-banner {
+    flex-direction: column;
+    padding: 24px 20px;
+    gap: 8px;
+    text-align: center;
+  }
+
+  /* Footer */
   .footer-wrap {
     grid-template-columns: 1fr;
+  }
+
+  .page-wrap {
+    padding-bottom: 52px;
+  }
+
+  .hero {
+    padding: 42px 18px 50px;
+  }
+
+  .hero-headline {
+    margin-top: 20px;
   }
 }
