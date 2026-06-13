@@ -27,3 +27,22 @@ accordions.forEach((node) => {
     });
   });
 });
+
+const navToggle = document.querySelector(".nav-toggle");
+const siteHeader = document.querySelector(".site-header");
+
+if (navToggle && siteHeader) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = siteHeader.classList.toggle("nav-open");
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    navToggle.setAttribute("aria-label", isOpen ? "Đóng menu" : "Mở menu");
+  });
+
+  siteHeader.querySelectorAll(".nav-side a").forEach((link) => {
+    link.addEventListener("click", () => {
+      siteHeader.classList.remove("nav-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Mở menu");
+    });
+  });
+}
